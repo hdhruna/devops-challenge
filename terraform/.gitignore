@@ -1,0 +1,13 @@
+# Compiled files
+*.tfstate
+*.tfstate.*.backup
+*.tfstate.backup
+
+# Other Terraform related files
+.terraform/
+terraform.tfstate.d/
+service-account.json
+
+requirements.lock
+*.tgz
+*.DS_Store
