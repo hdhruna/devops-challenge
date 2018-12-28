@@ -1,0 +1,4 @@
+apiVersion: v1
+description: A Helm chart for client
+name: client
+version: 1.0.0

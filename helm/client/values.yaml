@@ -1,0 +1,43 @@
+# Default values for client
+
+appName: client
+appType: grpc-test-app
+image:
+  name: challenge-devops-gclient
+  tag: v1.0.1
+  repository: quay.io/travelaudience
+  pullPolicy: Always
+
+envvar:
+  address:
+    name: ADDR
+    value: server-headless:9090
+  dns:
+    name: DNS
+    value: "true"
+  waitTimeBetweenRequests:
+    # one request each X millis
+    name: FREQUENCY
+    value: "100"  #10 rps
+
+affinity: {}
+
+tolerations:
+  - key: "dedicated"
+    operator: "Equal"
+    value: "server"
+    effect: "NoSchedule"
+
+replicaCount: 1
+
+resources: {}
+
+ports:
+- name: prom
+  port: 8081
+  protocol: TCP
+  targetPort: 8081
+
+annotations:
+  prometheus.io/port: "8081"
+  prometheus.io/scrape: "true"

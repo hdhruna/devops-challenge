@@ -1,0 +1,46 @@
+# Default values for server
+
+appName: server
+appType: grpc-test-app
+image:
+  name: challenge-devops-gserver
+  tag: v1.0.1
+  repository: quay.io/travelaudience
+  pullPolicy: Always
+
+envvar: {}
+
+affinity:
+  nodeAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: load
+          operator: In
+          values:
+          - server
+          
+tolerations:
+  - key: "dedicated"
+    operator: "Equal"
+    value: "server"
+    effect: "NoSchedule"
+
+replicaCount: 1
+
+resources: {}
+  # resources:
+  #   requests:
+  #     cpu: 20m
+  #     memory: 40Mi
+
+service:
+  type: ClusterIP
+  ports:
+  - name: svc
+    port: 9090
+  - name: prom
+    port: 8081
+  annotations:
+    prometheus.io/port: "8081"
+    prometheus.io/scrape: "true"

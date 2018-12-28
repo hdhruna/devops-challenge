@@ -1,0 +1,4 @@
+apiVersion: v1
+description: A Helm chart for server
+name: server
+version: 1.0.0
