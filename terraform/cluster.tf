@@ -17,6 +17,7 @@ resource "google_container_node_pool" "client_pool" {
   cluster            = "${google_container_cluster.homework_cluster.name}"
   zone               = "${var.zone}"
   initial_node_count = 1
+  max_node_count     = 20
   version            = "${var.cluster_version}"
 
   node_config {
@@ -50,6 +51,7 @@ resource "google_container_node_pool" "server_pool" {
   cluster            = "${google_container_cluster.homework_cluster.name}"
   zone               = "${var.zone}"
   initial_node_count = 1
+  max_node_count     = 20
   version            = "${var.cluster_version}"
 
   node_config {
