@@ -1,6 +1,6 @@
 # Goal
 
-Modify/extend this repo in such a way that the server running will autoscale when the number of requests go up/down. The goal is to reach 150 requests per second on the server side with an average response time of less than 100ms.
+Modify/extend this repo in such a way that the server running will autoscale when the number of requests go up/down. The goal is to reach 50 requests per second on the server side with an average response time of less than 100ms.
 
 
 # Setup
